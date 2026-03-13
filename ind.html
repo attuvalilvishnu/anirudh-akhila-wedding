@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anirudh & Akhila Wedding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Poppins:wght@300;400&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Poppins;
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+            background: #4e5b48;
+        }
+
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            filter: brightness(0.5);
+        }
+
+        .temple-bg {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-family: Cinzel;
+            font-size: 60px;
+            margin: 10px;
+        }
+
+        h2 {
+            font-family: Cinzel;
+            font-size: 36px;
+        }
+
+        h3 {
+            font-family: Cinzel;
+            font-size: 28px;
+            margin: 8px;
+        }
+
+        .open-btn {
+            padding: 14px 35px;
+            background: #d4b06a;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .section {
+            padding: 80px 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.12);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .countdown {
+            font-size: 30px;
+            margin-top: 20px;
+        }
+
+        .map-btn {
+            padding: 12px 25px;
+            background: #d4b06a;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .flower,
+        .lamp,
+        .lotus {
+            position: fixed;
+            pointer-events: none;
+            z-index: 3;
+            animation: fall linear forwards;
+        }
+
+        .lamp {
+            font-size: 30px;
+        }
+
+        .lotus {
+            width: 24px;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
+
+        .music-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #d4b06a;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .gallery img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        .rsvp-form input,
+        .rsvp-form textarea {
+            padding: 10px;
+            width: 90%;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: none;
+        }
+
+        .rsvp-form button {
+            padding: 12px 30px;
+            background: #d4b06a;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .fog {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.2));
+            z-index: 1;
+        }
+
+        .timeline table {
+            width: 100%;
+            color: white;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .timeline th,
+        .timeline td {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Intro cinematic */
+        #intro {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            flex-direction: column;
+        }
+
+        .door {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            background: #5c3b1e;
+            transition: 2s;
+            z-index: 5;
+        }
+
+        .door.left {
+            left: 0;
+        }
+
+        .door.right {
+            right: 0;
+        }
+
+        .open-left {
+            transform: translateX(-100%);
+        }
+
+        .open-right {
+            transform: translateX(100%);
+        }
+
+        #ganesh img {
+            width: 220px;
+            opacity: 0;
+            transition: 2s;
+            z-index: 6;
+        }
+
+        #temple img {
+            width: 80%;
+            opacity: 0;
+            transition: 2s;
+            z-index: 1;
+        }
+
+        .fog-intro {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+            opacity: 0.2;
+            z-index: 2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CINEMATIC INTRO -->
+    <div id="intro">
+        <div class="door left"></div>
+        <div class="door right"></div>
+        <div id="temple"><img src="couple1.jpeg" alt="Guruvayoor Temple"></div>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+        <img src="couple.jpg" alt="Couple Photo">
+        <img src="temple.png" alt="Guruvayoor Temple" class="temple-bg">
+        <div class="fog"></div>
+        <div class="hero-content">
+            <h2>With the blessings of Guruvayoorappan</h2>
+            <h1>Anirudh</h1>
+            <p>with</p>
+            <h1>Akhila</h1>
+            <p>20 May 2026 • Calicut</p>
+            <button class="open-btn" onclick="scrollToInvite()">Open Invitation</button>
+        </div>
+    </div>
+
+    <!-- TRADITIONAL BLESSING -->
+    <div class="section">
+        <h2>शुभं करोति कल्याणम्</h2>
+        <p>Shubham Karoti Kalyanam, Aarogyam Dhana Sampadah, Shatrubuddhi Vinashayet, Dveeshya Bhavanah Sukhadayah</p>
+    </div>
+
+    <!-- DETAILS -->
+    <div class="section">
+        <p>Mrs. V. Padmaja Vijayan<br>&<br>Mr. A. B. Vijayan Menon</p>
+        <p>cordially invite you to the wedding reception of their beloved son</p>
+        <h1>ANIRUDH</h1>
+        <p>with</p>
+        <h1>AKHILA</h1>
+    </div>
+
+    <div class="section card timeline">
+        <h2>Ceremony Timeline</h2>
+        <table>
+            <tr>
+                <th>Ceremony</th>
+                <th>Time</th>
+                <th>Location</th>
+            </tr>
+            <tr>
+                <td>Nischayathartham (Engagement)</td>
+                <td>10:00 AM</td>
+                <td>Groom’s House</td>
+            </tr>
+            <tr>
+                <td>Muhurtham (Wedding)</td>
+                <td>5:00 PM</td>
+                <td>Guruvayoor Temple</td>
+            </tr>
+            <tr>
+                <td>Reception</td>
+                <td>7:00 PM</td>
+                <td>Classic Auditorium, Calicut</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section card">
+        <h2>Dress Code</h2>
+        <p>Traditional Kerala attire requested: Mundu & Kasavu Saree / Saree or Dhoti with Mundu</p>
+    </div>
+
+    <div class="section card">
+        <h2>Wedding Feast Highlights</h2>
+        <ul>
+            <li>Sadhya on banana leaf</li>
+            <li>Avial, Sambar, Olan, Kalan</li>
+            <li>Payasam & Banana chips</li>
+        </ul>
+    </div>
+
+    <!-- COUNTDOWN -->
+    <div class="section">
+        <h2>Countdown to Our Celebration</h2>
+        <div id="countdown" class="countdown"></div>
+    </div>
+
+    <!-- BRIDE FAMILY -->
+    <div class="section card">
+        <h2>Bride's Family</h2>
+        <p>Mr. R. Muraleedhara Menon<br>Mrs. M. Jyothi</p>
+        <p>Ramaneeduth House<br>Punkunnam, Kozhungalur<br>Thrissur</p>
+    </div>
+
+    <!-- PERSONALIZED -->
+    <div class="section">
+        <h2 id="guest-name"></h2>
+    </div>
+
+    <!-- GALLERY -->
+    <div class="section">
+        <h2>Gallery</h2>
+        <div class="gallery">
+            <img src="gallery1.jpg" alt="Photo1">
+            <img src="gallery2.jpg" alt="Photo2">
+            <img src="gallery3.jpg" alt="Photo3">
+        </div>
+    </div>
+
+    <!-- RSVP -->
+    <div class="section">
+        <h2>RSVP</h2>
+        <form class="rsvp-form" onsubmit="submitRSVP(event)">
+            <input type="text" placeholder="Your Name" id="rsvp-name" required>
+            <input type="email" placeholder="Your Email" id="rsvp-email" required>
+            <textarea placeholder="Message / Wishes" id="rsvp-msg"></textarea>
+            <button type="submit">Send RSVP</button>
+        </form>
+        <p id="rsvp-thank"></p>
+    </div>
+
+    <audio id="music" loop>
+        <source src="music.mp3">
+    </audio>
+    <button class="music-btn" onclick="toggleMusic()">🎶 Music</button>
+
+    <script>
+        function scrollToInvite() { window.scrollTo({ top: window.innerHeight, behavior: 'smooth' }); }
+        var weddingDate = new Date("May 20, 2026 17:00:00").getTime();
+        setInterval(function () {
+            var now = new Date().getTime(), diff = weddingDate - now;
+            document.getElementById("countdown").innerHTML = Math.floor(diff / (1000 * 60 * 60 * 24)) + " Days " + Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) + " Hours " + Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)) + " Minutes";
+        }, 1000);
+        function toggleMusic() { var music = document.getElementById("music"); music.paused ? music.play() : music.pause(); }
+        var urlParams = new URLSearchParams(window.location.search); var guestName = urlParams.get('guest');
+        if (guestName) { document.getElementById("guest-name").innerText = "Dear " + guestName + ", you are invited!"; }
+
+        // CINEMATIC INTRO
+        window.onload = function () {
+            // Doors open
+            setTimeout(() => {
+                document.querySelector(".door.left").classList.add("open-left");
+                document.querySelector(".door.right").classList.add("open-right");
+                document.getElementById("bell").play();
+            }, 1500);
+            // Ganesh appears
+            setTimeout(() => {
+                document.querySelector("#ganesh img").style.opacity = 1;
+            }, 3500);
+            // Lotus & lamps start falling after Ganesh
+            setTimeout(() => {
+                let lotusInterval = setInterval(() => {
+                    let lotus = document.createElement("img");
+                    lotus.src = "lotus.png";
+                    lotus.className = "lotus";
+                    lotus.style.left = Math.random() * 100 + "vw";
+                    lotus.style.animationDuration = (6 + Math.random() * 4) + "s";
+                    document.body.appendChild(lotus);
+                    setTimeout(() => lotus.remove(), 10000);
+                }, 700);
+                let lampInterval = setInterval(() => {
+                    let lamp = document.createElement("div");
+                    lamp.className = "lamp";
+                    lamp.innerHTML = "🪔";
+                    lamp.style.left = Math.random() * 100 + "vw";
+                    lamp.style.animationDuration = (5 + Math.random() * 5) + "s";
+                    document.body.appendChild(lamp);
+                    setTimeout(() => lamp.remove(), 10000);
+                }, 500);
+            }, 4500);
+            // Ganesh fades
+            setTimeout(() => {
+                document.querySelector("#ganesh img").style.opacity = 0;
+            }, 6500);
+            // Temple reveal
+            setTimeout(() => {
+                document.querySelector("#temple img").style.opacity = 1;
+            }, 7500);
+            // Hide intro and show main content
+            setTimeout(() => {
+                document.getElementById("intro").style.display = "none";
+            }, 10500);
+        };
+
+        // RSVP Submit
+        function submitRSVP(e) { e.preventDefault(); document.getElementById("rsvp-thank").innerText = "Thank you for your wishes!"; document.getElementById("rsvp-name").value = ""; document.getElementById("rsvp-email").value = ""; document.getElementById("rsvp-msg").value = ""; }
+    </script>
+</body>
+
+</html>
