@@ -221,11 +221,12 @@
             margin: 50px 0;
         }
 
+        /* Names */
         .groom,
         .bride {
             font-family: 'Allura', cursive;
-            font-size: 6vw;
-            /* responsive size */
+            font-size: clamp(40px, 10vw, 150px);
+            /* never smaller than 40px, max 150px */
             font-weight: 700;
             background: linear-gradient(90deg, #d4b06a, #fff3b0);
             -webkit-background-clip: text;
@@ -234,12 +235,13 @@
             margin: 0;
         }
 
+        /* "with" text */
         .with-text {
             font-family: 'Cinzel', serif;
-            font-size: 3vw;
+            font-size: clamp(20px, 5vw, 60px);
+            /* scales but stays readable on mobile */
             color: rgba(255, 255, 255, 0.85);
             margin: 20px 0;
-            /* space above and below "with" */
         }
     </style>
 </head>
