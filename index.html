@@ -167,17 +167,6 @@
             cursor: pointer;
         }
 
-        .flower {
-            position: absolute;
-            /* Absolute instead of fixed */
-            font-size: 26px;
-            animation: fall linear infinite;
-            z-index: 0;
-            /* Put behind content */
-            pointer-events: none;
-            /* So it doesn’t block clicks */
-        }
-
         @keyframes fall {
             0% {
                 transform: translateY(-10vh)
@@ -206,34 +195,6 @@
             font-size: 14px;
         }
 
-        .styled-names {
-            text-align: center;
-            margin: 50px 0;
-        }
-
-        /* Names */
-        .groom,
-        .bride {
-            font-family: 'Allura', cursive;
-            font-size: clamp(40px, 10vw, 150px);
-            /* never smaller than 40px, max 150px */
-            font-weight: 700;
-            background: linear-gradient(90deg, #d4b06a, #fff3b0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
-            margin: 0;
-        }
-
-        /* "with" text */
-        .with-text {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(20px, 5vw, 60px);
-            /* scales but stays readable on mobile */
-            color: rgba(255, 255, 255, 0.85);
-            margin: 20px 0;
-        }
-
         .time-box {
             background: linear-gradient(135deg, #d4b06a, #fff3b0, #f6e1a0);
             padding: 18px 22px;
@@ -256,6 +217,73 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        .flower-btn {
+            background: radial-gradient(circle at 30% 30%, #fdd835, #d4b06a);
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 22px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Allura', cursive;
+            color: white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+        }
+
+        .flower-btn:hover {
+            transform: rotate(-5deg) scale(1.08);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-cover .hero {
+            position: relative;
+            z-index: 3;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .hero h1 {
+            font-family: 'Allura', cursive;
+            font-size: clamp(40px, 10vw, 100px);
+            margin: 0;
+            background: linear-gradient(90deg, #d4b06a, #fff3b0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero p {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(20px, 5vw, 40px);
+            margin: 10px 0;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .styled-names {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        /* Names */
+        .groom,
+        .bride {
+             font-family: cursive;
+            font-size: clamp(40px, 10vw, 100px);
+            margin: 0;
+            background: linear-gradient(90deg, #d4b06a, #fff3b0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        /* "with" text */
+        .with-text {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(20px, 5vw, 40px);
+            margin: 10px 0;
+            color: rgba(255, 255, 255, 0.85);
+        }
     </style>
 </head>
 
@@ -268,28 +296,11 @@
         <img src="couple1.jpeg" alt="Hero Image" class="bg-img">
         <div class="overlay"></div>
         <div class="hero-content">
-            <!-- SVG Stylish AA Monogram -->
-            <!----  <svg class="monogram-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100" width="200" height="100">
-                <defs>
-                    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" style="stop-color:#d4b06a; stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#fff3b0; stop-opacity:1" />
-                    </linearGradient>
-                    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-                        <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="rgba(0,0,0,0.4)" />
-                    </filter>
-                </defs>
-                <text x="50%" y="70%" text-anchor="middle" font-family="Allura, cursive" font-size="80"
-                    fill="url(#goldGradient)" filter="url(#shadow)">
-                    AA
-                </text>
-            </svg> -->
-
             <h1>Anirudh</h1>
             <p>with</p>
             <h1>Akhila</h1>
             <p>20 May 2026 • Calicut</p>
-            <button class="open-btn" onclick="scrollInvite()">Open Invitation</button>
+            <button class="flower-btn" onclick="scrollInvite()">Open Invitation</button>
         </div>
     </div>
     <div id="invite-sections" style="display:none;">
@@ -351,7 +362,7 @@
         <div class="section invite-section ">
             <div class="card">
                 <h2>Bride's Family</h2>
-                <p>Mr. R. Muraleedhara Menon<br>Mrs. M. Jyothi</p>
+                <p>Mr. R Muraleedhara Menon<br>Mrs. M Jyothi</p>
                 <p>Ramaneeduth House<br>Punkunnam, Kozhungalur<br>Thrissur</p>
             </div>
         </div>
@@ -453,8 +464,6 @@
             } else {
                 m.play();
             }
-            // Start music from beginning
-            //
         }
 
         // Guest personalization
