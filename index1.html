@@ -19,10 +19,17 @@
         body {
             margin: 0;
             font-family: Poppins;
-            background: #3f4a3c;
+            background: url("couple2.jpeg") no-repeat center center/cover;
             color: white;
             text-align: center;
             overflow-x: hidden;
+
+
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
         }
 
         .hero {
@@ -91,7 +98,8 @@
         }
 
         .card {
-            background: linear-gradient(135deg, #1a535c, #4ecdc4);
+            /*background: rgba(255, 255, 255, 0.12);*/
+            background-color: transparent;
             padding: 35px;
             border-radius: 15px;
             max-width: 700px;
@@ -112,13 +120,14 @@
         }
 
         .card p {
-            color: white
+            color: white;
+
         }
 
         .card b,
         .card span,
         .card li {
-            color: #FFB6A1;
+            color: rebeccapurple;
             font-family: cursive;
             font-size: clamp(16px, 2.5vw, 20px);
             line-height: 1.6;
@@ -131,14 +140,6 @@
             gap: 20px;
             margin-top: 25px;
             flex-wrap: wrap;
-        }
-
-        .time-box {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 18px 22px;
-            border-radius: 12px;
-            min-width: 90px;
-            backdrop-filter: blur(6px);
         }
 
         .time-number {
@@ -170,9 +171,9 @@
             margin-top: 25px;
         }
 
-        .gallery img {
-            width: 180px;
-            height: 180px;
+        .gallery video {
+            width: 350px;
+            height: 300px;
             object-fit: cover;
             border-radius: 12px;
             transition: 0.4s;
@@ -222,7 +223,7 @@
         }
 
         .time-box {
-            background: linear-gradient(135deg, #227d7a, #6fd8d1);
+            background-color: #3f4a3c;
             color: #fff;
             /* white text for contrast */
             /* dark teal text for contrast */
@@ -251,14 +252,15 @@
 
 
         .invite-section p {
-            font-family: cursive;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             font-size: 20px;
         }
 
         .invite-section .invite {
-            font-size: 22px;
+            font-size: 25px;
             max-width: 600px;
             margin: 20px auto;
+            color: white;
         }
 
         .styled-names {
@@ -281,7 +283,7 @@
         }
 
         .flower-btn {
-            background: radial-gradient(circle at 30% 30%, #fdd835, #d4b06a);
+            background: radial-gradient(circle at 30% 30%, #806e55, #d4b06a);
             padding: 16px 40px;
             border-radius: 50px;
             font-size: 22px;
@@ -326,13 +328,64 @@
             width: clamp(120px, 20vw, 180px);
             height: auto;
             margin: 10px 0;
+            position: relative;
+            top: 50px;
+        }
+
+        .map-container {
+            width: 220px;
+            /* slightly larger than iframe for padding effect */
+            height: 220px;
+            margin: 20px auto;
+            padding: 10px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .map-container iframe {
+            width: 200px;
+            height: 200px;
+            border: 3px solid white;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .map-container:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        .map-container:hover iframe {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .overlay-content {
+            position: relative;
+            padding: 40px 20px;
+            border-radius: 20px;
+            /*background: rgba(255, 255, 255, 0.12);*/
+            background-color: transparent;
+            /* matches #3f4a3c with transparency */
+            backdrop-filter: blur(8px);
+            /* soft blur for elegance */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .overlay-content:hover {
+            transform: scale(1.02);
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.4);
         }
     </style>
 </head>
 
 <body>
-
-    </div>
 
     <!-- Hero Section -->
     <div class="hero">
@@ -348,20 +401,20 @@
         <!-- Invitation Section -->
         <!-- Styled Names Section -->
         <!-- Invitation Section with Styled Names -->
-        <div class="section invite-section ">
+        <div class="section invite-section">
+            <div class="card">
+                <p>Mrs. V Padmaja Vijayan<br>✨<br>Mr. AB Vijayan Menon</p>
 
-            <p>Mrs. V Padmaja Vijayan<br>&<br>Mr. AB Vijayan Menon</p>
+                <p class='invite'>
+                    Please join us with your family to celebrate wedding reception of our beloved son
+                </p>
 
-            <p class='invite'>
-                Please join us with your family to celebrate wedding reception of our beloved son
-            </p>
-
-            <div class="styled-names">
-                <h1>Anirudh</h1>
-                <p>♥</p>
-                <h1>Akhila</h1>
+                <div class="styled-names">
+                    <h1>Anirudh</h1>
+                    <p>♥</p>
+                    <h1>Akhila</h1>
+                </div>
             </div>
-
         </div>
 
         <!-- Reception -->
@@ -391,7 +444,7 @@
                 <p><b>Marriage will be solemnized at</b><br>Sree Krishna Temple, Guruvayur</p>
                 <p><b>Monday, 18 May 2026</b></p>
                 <p>Poonthanam Auditorium, East Nada, Guruvayur</p>
-                <p><b>Time: 10:30 AM to 11:30 AM</b></p>
+                <p><b>10:30 AM to 11:30 AM</b></p>
 
                 <!-- Google Map Embed -->
                 <div class="map-container">
@@ -407,18 +460,20 @@
             <div class="card">
                 <h2>Bride's Family</h2>
                 <p>Mr. R Muraleedhara Menon<br>Mrs. M Jyothi</p>
-                <p>Ramaneeduth House<br>Punkunnam, Kodungalur<br>Thrissur</p>
+                <p><b>Ramaneeduth House<br>Punkunnam, Kodungallur<br>Thrissur</b></p>
             </div>
         </div>
 
         <!-- Gallery Section -->
         <div class="section invite-section ">
-            <h2>Moments</h2>
-            <div class="gallery">
-                <img src="couple1.jpeg" alt="Gallery Image">
-                <img src="couple2.jpeg" alt="Gallery Image">
-                <img src="couple3.jpeg" alt="Gallery Image">
-                <img src="couple4.jpeg" alt="Gallery Image">
+            <div class="card">
+                <h2>Moments</h2>
+                <div class="gallery">
+                    <video autoplay muted loop id="bg-video">
+                        <source src="video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
         </div>
 
