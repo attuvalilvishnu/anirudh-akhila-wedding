@@ -19,7 +19,7 @@
         body {
             margin: 0;
             font-family: Poppins;
-            background: #3f4a3c;
+            background: #3F4A46;
             color: white;
             text-align: center;
             overflow-x: hidden;
@@ -360,12 +360,27 @@
             transform: scale(1.05);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
+
+        .overlay-content {
+            position: relative;
+            padding: 40px 20px;
+            border-radius: 20px;
+            background: rgba(60, 75, 55, 0.6);
+            /* matches #3f4a3c with transparency */
+            backdrop-filter: blur(8px);
+            /* soft blur for elegance */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .overlay-content:hover {
+            transform: scale(1.02);
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.4);
+        }
     </style>
 </head>
 
 <body>
-
-    </div>
 
     <!-- Hero Section -->
     <div class="hero">
@@ -381,20 +396,20 @@
         <!-- Invitation Section -->
         <!-- Styled Names Section -->
         <!-- Invitation Section with Styled Names -->
-        <div class="section invite-section ">
+        <div class="section invite-section">
+            <div class="overlay-content">
+                <p>Mrs. V Padmaja Vijayan<br>✨<br>Mr. AB Vijayan Menon</p>
 
-            <p>Mrs. V Padmaja Vijayan<br>&<br>Mr. AB Vijayan Menon</p>
+                <p class='invite'>
+                    Please join us with your family to celebrate wedding reception of our beloved son
+                </p>
 
-            <p class='invite'>
-                Please join us with your family to celebrate wedding reception of our beloved son
-            </p>
-
-            <div class="styled-names">
-                <h1>Anirudh</h1>
-                <p>♥</p>
-                <h1>Akhila</h1>
+                <div class="styled-names">
+                    <h1>Anirudh</h1>
+                    <p>♥</p>
+                    <h1>Akhila</h1>
+                </div>
             </div>
-
         </div>
 
         <!-- Reception -->
@@ -440,7 +455,7 @@
             <div class="card">
                 <h2>Bride's Family</h2>
                 <p>Mr. R Muraleedhara Menon<br>Mrs. M Jyothi</p>
-                <p><b>Ramaneeduth House<br>Punkunnam, Kodungalur<br>Thrissur</b></p>
+                <p><b>Ramaneeduth House<br>Punkunnam, Kodungallur<br>Thrissur</b></p>
             </div>
         </div>
 
