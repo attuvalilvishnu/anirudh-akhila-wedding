@@ -200,16 +200,6 @@
             }
         }
 
-        .whatsapp-btn {
-            margin-top: 20px;
-            padding: 12px 28px;
-            background: #25D366;
-            border: none;
-            border-radius: 8px;
-            color: white;
-            cursor: pointer;
-        }
-
         footer {
             padding: 30px;
             opacity: 0.7;
@@ -242,6 +232,29 @@
             /* scales but stays readable on mobile */
             color: rgba(255, 255, 255, 0.85);
             margin: 20px 0;
+        }
+
+        .time-box {
+            background: linear-gradient(135deg, #d4b06a, #fff3b0, #f6e1a0);
+            padding: 18px 22px;
+            border-radius: 12px;
+            min-width: 90px;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            color: #3f4a3c;
+            /* dark text for contrast */
+            font-weight: 600;
+        }
+
+        .invite-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .invite-section.show {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -279,103 +292,121 @@
             <button class="open-btn" onclick="scrollInvite()">Open Invitation</button>
         </div>
     </div>
+    <div id="invite-sections" style="display:none;">
+        <!-- Invitation Section -->
+        <!-- Styled Names Section -->
+        <!-- Invitation Section with Styled Names -->
+        <div class="section invite-section ">
+            <p>Mrs. V Padmaja Vijayan<br>&<br>Mr. AB Vijayan Menon</p>
 
-    <!-- Invitation Section -->
-    <!-- Styled Names Section -->
-    <!-- Invitation Section with Styled Names -->
-    <div class="section">
-        <p>Mrs. V Padmaja Vijayan<br>&<br>Mr. AB Vijayan Menon</p>
+            <p style="font-size: 18px; line-height: 1.6; opacity: 0.9; max-width: 600px; margin: 20px auto;">
+                Please join us with your family to celebrate wedding reception of our beloved son
+            </p>
 
-        <p style="font-size: 16px; line-height: 1.6; opacity: 0.9; max-width: 600px; margin: 20px auto;">
-            Please join us with your family to celebrate wedding reception of our beloved son
-        </p>
-
-        <div class="styled-names">
-            <div class="groom">ANIRUDH</div>
-            <div class="with-text">with</div>
-            <div class="bride">AKHILA</div>
-        </div>
-    </div>
-
-    <!-- Reception -->
-    <div class="section">
-        <div class="card">
-            <h2>Reception</h2>
-            <p><b>Wednesday, 20 May 2026</b></p>
-            <p>5:00 PM - 9:00 PM</p>
-            <p>Classic Auditorium (Majestic)<br>Palayam, Calicut</p>
-            <div class="map-container">
-                <iframe
-                    src=" https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.1473308805503!2d75.78824809999999!3d11.250570399999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65941738769c5%3A0x751198bd8adbc973!2sMajestic%20Auditorium!5e0!3m2!1sen!2sca!4v1773451184372!5m2!1sen!2sca"
-                    width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-            <h2 style="margin-top:30px">Countdown to Celebration</h2>
-            <div id="countdown" class="countdown"></div>
-        </div>
-    </div>
-
-
-    <!-- Marriage Ceremony -->
-    <div class="section marriage-section">
-        <div class="card">
-            <h2>Marriage Ceremony</h2>
-            <p><b>Marriage will be solemnized at</b><br>Sree Krishna Temple, Guruvayur</p>
-            <p><b>Poonthanam Auditorium, East Nada, Guruvayur</b></p>
-            <p><b>Monday, 18 May 2026</b></p>
-            <p>Time: 10:30 AM to 11:30 AM</p>
-
-            <!-- Google Map Embed -->
-            <div class="map-container">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3921.8143539254697!2d76.0416431!3d10.593683300000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7948a4938dea7%3A0x1b46d82a9cb5b020!2sPOONTHANAM%20AUDITORIUM!5e0!3m2!1sen!2sca!4v1773450497381!5m2!1sen!2sca"
-                    width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="styled-names">
+                <div class="groom">ANIRUDH</div>
+                <div class="with-text">with</div>
+                <div class="bride">AKHILA</div>
             </div>
         </div>
-    </div>
 
-    <div class="section">
-        <div class="card">
-            <h2>Bride's Family</h2>
-            <p>Mr. R. Muraleedhara Menon<br>Mrs. M. Jyothi</p>
-            <p>Ramaneeduth House<br>Punkunnam, Kozhungalur<br>Thrissur</p>
+        <!-- Reception -->
+        <div class="section invite-section ">
+            <div class="card">
+                <h2>Reception</h2>
+                <p><b>Wednesday, 20 May 2026</b></p>
+                <p>5:00 PM - 9:00 PM</p>
+                <p>Classic Auditorium (Majestic)<br>Palayam, Calicut</p>
+                <div class="map-container">
+                    <iframe
+                        src=" https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.1473308805503!2d75.78824809999999!3d11.250570399999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65941738769c5%3A0x751198bd8adbc973!2sMajestic%20Auditorium!5e0!3m2!1sen!2sca!4v1773451184372!5m2!1sen!2sca"
+                        width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <h2 style="margin-top:30px">Countdown to Celebration</h2>
+                <div id="countdown" class="countdown"></div>
+            </div>
         </div>
-    </div>
 
-    <!-- Gallery Section -->
-    <div class="section">
-        <h2>Moments</h2>
-        <div class="gallery">
-            <img src="couple1.jpeg" alt="Gallery Image">
-            <img src="couple2.jpeg" alt="Gallery Image">
-            <img src="couple3.jpeg" alt="Gallery Image">
-            <img src="couple4.jpeg" alt="Gallery Image">
+
+        <!-- Marriage Ceremony -->
+        <div class="section invite-section ">
+            <div class="card">
+                <h2>Marriage Ceremony</h2>
+                <p><b>Marriage will be solemnized at</b><br>Sree Krishna Temple, Guruvayur</p>
+                <p><b>Poonthanam Auditorium, East Nada, Guruvayur</b></p>
+                <p><b>Monday, 18 May 2026</b></p>
+                <p>Time: 10:30 AM to 11:30 AM</p>
+
+                <!-- Google Map Embed -->
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3921.8143539254697!2d76.0416431!3d10.593683300000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7948a4938dea7%3A0x1b46d82a9cb5b020!2sPOONTHANAM%20AUDITORIUM!5e0!3m2!1sen!2sca!4v1773450497381!5m2!1sen!2sca"
+                        width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
         </div>
-    </div>
 
-
-    <!-- Music -->
-    <audio id="music" loop>
-        <source src="music.mpeg" type="audio/mpeg">
-    </audio>
-    <button class="music-btn" onclick="toggleMusic()">🎶</button>
-
-    <!-- Sharing Happiness -->
-    <div class="section" id="happiness-section" style="position: relative;">
-        <div class="card" style="position: relative; z-index: 2;">
-            <h2>Sharing the Happiness</h2>
-            <p>Vishnu Menon, Lakshmi Vijayan, Arunima, Keyan, Thanima Jewellery & relatives</p>
+        <div class="section invite-section ">
+            <div class="card">
+                <h2>Bride's Family</h2>
+                <p>Mr. R. Muraleedhara Menon<br>Mrs. M. Jyothi</p>
+                <p>Ramaneeduth House<br>Punkunnam, Kozhungalur<br>Thrissur</p>
+            </div>
         </div>
-    </div>
 
-    <footer>
-        Made with love for our wedding
-    </footer>
+        <!-- Gallery Section -->
+        <div class="section invite-section ">
+            <h2>Moments</h2>
+            <div class="gallery">
+                <img src="couple1.jpeg" alt="Gallery Image">
+                <img src="couple2.jpeg" alt="Gallery Image">
+                <img src="couple3.jpeg" alt="Gallery Image">
+                <img src="couple4.jpeg" alt="Gallery Image">
+            </div>
+        </div>
+
+
+        <!-- Music -->
+        <audio id="music" loop>
+            <source src="music.mpeg" type="audio/mpeg">
+        </audio>
+        <button class="music-btn" onclick="toggleMusic()">🎶</button>
+
+        <!-- Sharing Happiness -->
+        <div class="section invite-section " id="happiness-section" style="position: relative;">
+            <div class="card" style="position: relative; z-index: 2;">
+                <h2>Sharing the Happiness</h2>
+                <p>Vishnu Menon, Lakshmi Vijayan, Arunima, Keyan, Thanima Jewellery & relatives</p>
+            </div>
+        </div>
+
+
+
+        <footer>
+            Made with love for our wedding
+        </footer>
+    </div>
 
     <script>
         function scrollInvite() {
-            window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+            const invite = document.getElementById("invite-sections");
+            invite.style.display = "block"; // Show container
+
+            const sections = document.querySelectorAll(".invite-section");
+            sections.forEach((sec, index) => {
+                setTimeout(() => {
+                    sec.classList.add("show"); // Trigger animation
+                }, index * 400); // 400ms delay between each section
+            });
+
+            // Scroll to the first section after 300ms
+            setTimeout(() => {
+                window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+            }, 300);
+
+            // Start music
             setTimeout(() => toggleMusic(), 400);
         }
 
@@ -415,7 +446,15 @@
         // Music toggle
         function toggleMusic() {
             var m = document.getElementById("music");
-            m.paused ? m.play() : m.pause();
+            if (!m.paused) {
+                // Stop the music
+                m.pause();
+                m.currentTime = 0; // Reset to beginning
+            } else {
+                m.play();
+            }
+            // Start music from beginning
+            //
         }
 
         // Guest personalization
