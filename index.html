@@ -91,12 +91,38 @@
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.12);
+            background: linear-gradient(135deg, #1a535c, #4ecdc4);
             padding: 35px;
             border-radius: 15px;
             max-width: 700px;
             margin: auto;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Force all text inside cards to cream color */
+        .card,
+        .card h2 {
+            color: lightgoldenrodyellow;
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+            font-size: clamp(24px, 4vw, 36px);
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: white
+        }
+
+        .card b,
+        .card span,
+        .card li {
+            color: #FFB6A1;
+            font-family: cursive;
+            font-size: clamp(16px, 2.5vw, 20px);
+            line-height: 1.6;
+            margin: 10px 0;
         }
 
         .countdown {
@@ -196,13 +222,18 @@
         }
 
         .time-box {
-            background: linear-gradient(135deg, #d4b06a, #fff3b0, #f6e1a0);
+            background: linear-gradient(135deg, #227d7a, #6fd8d1);
+            color: #fff;
+            /* white text for contrast */
+            /* dark teal text for contrast */
+            /* dark teal text for contrast */
+            /* white text for contrast */
             padding: 18px 22px;
             border-radius: 12px;
             min-width: 90px;
             backdrop-filter: blur(6px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            color: #3f4a3c;
+
             /* dark text for contrast */
             font-weight: 600;
         }
@@ -216,6 +247,37 @@
         .invite-section.show {
             opacity: 1;
             transform: translateY(0);
+        }
+
+
+        .invite-section p {
+            font-family: cursive;
+            font-size: 20px;
+        }
+
+        .invite-section .invite {
+            font-size: 22px;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .styled-names {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        /* Names */
+        .styled-names h1 {
+            font-family: 'Allura', cursive;
+            font-size: clamp(40px, 10vw, 100px);
+            margin: 0;
+            background: linear-gradient(90deg, #d4b06a, #fff3b0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .styled-names p {
+            color: #fff3b0;
         }
 
         .flower-btn {
@@ -260,29 +322,43 @@
             color: rgba(255, 255, 255, 0.85);
         }
 
-        .styled-names {
-            text-align: center;
-            margin: 50px 0;
-        }
-
-        /* Names */
-        .groom,
-        .bride {
-             font-family: cursive;
-            font-size: clamp(40px, 10vw, 100px);
-            margin: 0;
-            background: linear-gradient(90deg, #d4b06a, #fff3b0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
-        }
-
-        /* "with" text */
-        .with-text {
-            font-family: 'Cinzel', serif;
-            font-size: clamp(20px, 5vw, 40px);
+        .hero-aa-img {
+            width: clamp(120px, 20vw, 180px);
+            height: auto;
             margin: 10px 0;
-            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .map-container {
+            width: 220px;
+            /* slightly larger than iframe for padding effect */
+            height: 220px;
+            margin: 20px auto;
+            padding: 10px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #1a535c, #4ecdc4);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .map-container iframe {
+            width: 200px;
+            height: 200px;
+            border: 3px solid white;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .map-container:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        .map-container:hover iframe {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
@@ -296,9 +372,7 @@
         <img src="couple1.jpeg" alt="Hero Image" class="bg-img">
         <div class="overlay"></div>
         <div class="hero-content">
-            <h1>Anirudh</h1>
-            <p>with</p>
-            <h1>Akhila</h1>
+            <img src="A_A.png" alt="AA Monogram" class="hero-aa-img">
             <p>20 May 2026 • Calicut</p>
             <button class="flower-btn" onclick="scrollInvite()">Open Invitation</button>
         </div>
@@ -308,17 +382,19 @@
         <!-- Styled Names Section -->
         <!-- Invitation Section with Styled Names -->
         <div class="section invite-section ">
+
             <p>Mrs. V Padmaja Vijayan<br>&<br>Mr. AB Vijayan Menon</p>
 
-            <p style="font-size: 18px; line-height: 1.6; opacity: 0.9; max-width: 600px; margin: 20px auto;">
+            <p class='invite'>
                 Please join us with your family to celebrate wedding reception of our beloved son
             </p>
 
             <div class="styled-names">
-                <div class="groom">ANIRUDH</div>
-                <div class="with-text">with</div>
-                <div class="bride">AKHILA</div>
+                <h1>Anirudh</h1>
+                <p>♥</p>
+                <h1>Akhila</h1>
             </div>
+
         </div>
 
         <!-- Reception -->
@@ -326,8 +402,9 @@
             <div class="card">
                 <h2>Reception</h2>
                 <p><b>Wednesday, 20 May 2026</b></p>
-                <p>5:00 PM - 9:00 PM</p>
                 <p>Classic Auditorium (Majestic)<br>Palayam, Calicut</p>
+                <p><b>5:00 PM - 9:00 PM</b></p>
+
                 <div class="map-container">
                     <iframe
                         src=" https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.1473308805503!2d75.78824809999999!3d11.250570399999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65941738769c5%3A0x751198bd8adbc973!2sMajestic%20Auditorium!5e0!3m2!1sen!2sca!4v1773451184372!5m2!1sen!2sca"
@@ -345,9 +422,9 @@
             <div class="card">
                 <h2>Marriage Ceremony</h2>
                 <p><b>Marriage will be solemnized at</b><br>Sree Krishna Temple, Guruvayur</p>
-                <p><b>Poonthanam Auditorium, East Nada, Guruvayur</b></p>
                 <p><b>Monday, 18 May 2026</b></p>
-                <p>Time: 10:30 AM to 11:30 AM</p>
+                <p>Poonthanam Auditorium, East Nada, Guruvayur</p>
+                <p><b>10:30 AM to 11:30 AM</b></p>
 
                 <!-- Google Map Embed -->
                 <div class="map-container">
@@ -363,7 +440,7 @@
             <div class="card">
                 <h2>Bride's Family</h2>
                 <p>Mr. R Muraleedhara Menon<br>Mrs. M Jyothi</p>
-                <p>Ramaneeduth House<br>Punkunnam, Kozhungalur<br>Thrissur</p>
+                <p><b>Ramaneeduth House<br>Punkunnam, Kodungalur<br>Thrissur</b></p>
             </div>
         </div>
 
