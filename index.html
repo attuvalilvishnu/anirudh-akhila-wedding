@@ -536,8 +536,10 @@
                         Your browser does not support the video tag.
                     </video>
                     <div class="controls">
-                        <button class="control-btn" onclick="playVideo()"><i class="fas fa-play"></i></button>
-                        <button class="control-btn" onclick="pauseVideo()"><i class="fas fa-pause"></i></button>
+                        <button id="play-btn" class="control-btn" onclick="userPlayVideo()"><i
+                                class="fas fa-play"></i></button>
+                        <button id="pause-btn" class="control-btn" onclick="userPauseVideo()"><i
+                                class="fas fa-pause"></i></button>
                         <button class="control-btn" onclick="restartVideo()"><i
                                 class="fas fa-rotate-right"></i></button>
                     </div>
@@ -579,6 +581,10 @@
     <script>
         const video = document.getElementById('bg-video');
         const loader = document.getElementById('loader');
+        const music = document.getElementById("music");
+        const playBtn = document.getElementById("play-btn");
+        const pauseBtn = document.getElementById("pause-btn");
+        let isUserPause = false;
         video.addEventListener('canplaythrough', () => {
             // Video is ready to play
             loader.style.display = 'none';
@@ -587,7 +593,7 @@
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
+                if (entry.isIntersecting && !isUserPause) {
                     playVideo();
                 } else {
                     pauseVideo();
@@ -596,6 +602,21 @@
         }, { threshold: 0.5 });
 
         observer.observe(video);
+
+        // Toggle buttons visibility
+        function updateButtons() {
+            if (video.paused || video.ended) {
+                playBtn.style.display = "inline-block";
+                pauseBtn.style.display = "none";
+
+            } else {
+                playBtn.style.display = "none";
+                pauseBtn.style.display = "inline-block";
+            }
+        }
+
+        // Initialize buttons on page load
+        updateButtons();
 
         function pause() {
             pauseVideo();
@@ -607,22 +628,34 @@
             playMusic();
         }
 
+        function userPlayVideo() {
+            isUserPause = false;
+            playVideo();
+        }
+
+        function userPauseVideo() {
+            isUserPause = true;
+            pauseVideo();
+        }
+
         function playVideo() {
             video.play();
             playMusic();
+            updateButtons();
         }
 
         function pauseVideo() {
             video.pause();
             pauseMusic();
+            updateButtons();
         }
         function restartVideo() {
+            isUserPause = false;
             video.currentTime = 0; // Go to the start
             playVideo();          // Play from beginning
             restartMusic();
+            updateButtons();
         }
-
-        const music = document.getElementById("music");
 
         function pauseMusic() {
             music.pause();
@@ -650,8 +683,15 @@
         }
 
         // Window blur/focus (switching apps or leaving browser)
-        window.addEventListener("blur", pause);
-        window.addEventListener("focus", play);
+        window.addEventListener("blur", () => {
+            music.paused || music.ended
+                ? isUserPause = true
+                : isUserPause = false;
+            pause();
+        });
+        window.addEventListener("focus", () => {
+            if (!isUserPause) play();
+        });
 
         function scrollInvite() {
             const invite = document.getElementById("invite-sections");
@@ -670,7 +710,7 @@
             }, 300);
 
             // Start music
-            setTimeout(() => toggleMusic(), 400);
+            // setTimeout(() => toggleMusic(), 400);
         }
 
         // Countdown
