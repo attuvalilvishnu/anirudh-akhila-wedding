@@ -301,7 +301,7 @@
 
         .invite-section p {
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            font-size: 1.2rem;
+            font-size: clamp(1.2rem, 2.5vw, 1.1rem);
         }
 
         .invite-section .invite {
@@ -728,7 +728,7 @@
             }, 300);
 
             // Start music
-             setTimeout(() => toggleMusic(), 400);
+            setTimeout(() => toggleMusic(), 400);
         }
 
         // Countdown
