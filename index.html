@@ -602,7 +602,7 @@
         });
 
         function safePlay() {
-            if (video.readyState >= 3) {
+            if (video?.readyState >= 3) {
                 play();
             } else {
                 video.addEventListener("canplay", play, { once: true });
@@ -612,7 +612,7 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !isUserPause) {
-                    safePlay();
+                    play();
                 } else {
                     pause();
                 }
