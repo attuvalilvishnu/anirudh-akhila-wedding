@@ -599,13 +599,20 @@
             // Video is ready to play
             loader.style.display = 'none';
             video.style.visibility = 'visible';
-            play();
         });
+
+        function safePlay() {
+            if (video.readyState >= 3) {
+                play();
+            } else {
+                video.addEventListener("canplay", play, { once: true });
+            }
+        }
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !isUserPause) {
-                    play();
+                    safePlay();
                 } else {
                     pause();
                 }
