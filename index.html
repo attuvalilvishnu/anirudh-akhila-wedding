@@ -599,14 +599,15 @@
             // Video is ready to play
             loader.style.display = 'none';
             video.style.visibility = 'visible';
+            play();
         });
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !isUserPause) {
-                    playVideo();
+                    play();
                 } else {
-                    pauseVideo();
+                    pause();
                 }
             });
         }, { threshold: 0.5 });
