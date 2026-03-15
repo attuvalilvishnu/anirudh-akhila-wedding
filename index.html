@@ -305,12 +305,19 @@
             font-size: clamp(1.1rem, 2.7vw, 1.2rem);
         }
 
+        @font-face {
+            font-family: 'ClassicCursive';
+            src: url('ClassicCursive.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         .invite-section .invite {
             font-size: clamp(1.2rem, 2.7vw, 1.3rem);
             max-width: 600px;
             margin: 20px auto;
             color: white;
-            font-family: "Apple Chancery", "Segoe Script", "Lucida Handwriting", "Brush Script MT", cursive;
+            font-family: 'ClassicCursive', cursive;
         }
 
         .invite-section .invite span {
