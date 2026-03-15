@@ -10,6 +10,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Poppins:wght@300;400&family=Allura&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         html {
@@ -439,7 +440,8 @@
             border: none;
             border-radius: 6px;
             cursor: pointer;
-            color: white;;
+            color: white;
+            ;
             background-color: transparent;
         }
     </style>
@@ -534,9 +536,10 @@
                         Your browser does not support the video tag.
                     </video>
                     <div class="controls">
-                        <button onclick="playVideo()">▶</button>
-                        <button onclick="pauseVideo()">⏸</button>
-                        <button onclick="restartVideo()">🔄</button>
+                        <button class="control-btn" onclick="playVideo()"><i class="fas fa-play"></i></button>
+                        <button class="control-btn" onclick="pauseVideo()"><i class="fas fa-pause"></i></button>
+                        <button class="control-btn" onclick="restartVideo()"><i
+                                class="fas fa-rotate-right"></i></button>
                     </div>
                 </div>
             </div>
@@ -545,7 +548,7 @@
         <div class="section invite-section ">
             <div class="card">
                 <h2>Bride's Family</h2>
-                <p>Mr. R Muraleedhara Menon<br>Mrs. M Jyothi<br>Akshay Murali Menon</p>
+                <p style="font-family: cursive">Mr. R Muraleedhara Menon<br>Mrs. M Jyothi<br>Akshay Murali Menon</p>
                 <p><b>Ramaneeduth House<br>Punkunnam, Kodungallur<br>Thrissur</b></p>
             </div>
         </div>
@@ -561,7 +564,8 @@
         <div class="section invite-section " id="happiness-section" style="position: relative;">
             <div class="card" style="position: relative; z-index: 2;">
                 <h2>Sharing the Happiness</h2>
-                <p>Thanima Jewellery <br>Vishnu Menon <br>Lakshmi Vijayan<br>Arunima<br>Keyan<br>Relatives & Family</p>
+                <p style="font-family: cursive">Thanima Jewellery <br>Vishnu Menon <br>Lakshmi
+                    Vijayan<br>Arunima<br>Keyan<br>Relatives & Family</p>
             </div>
         </div>
 
@@ -584,14 +588,24 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                   playVideo();
+                    playVideo();
                 } else {
-                   pauseVideo();
+                    pauseVideo();
                 }
             });
         }, { threshold: 0.5 });
 
         observer.observe(video);
+
+        function pause() {
+            pauseVideo();
+            pauseMusic();
+        }
+
+        function play() {
+            playVideo();
+            playMusic();
+        }
 
         function playVideo() {
             video.play();
@@ -621,7 +635,7 @@
             });
         }
 
-        function restartMusic(){
+        function restartMusic() {
             music.currentTime = 0;
             playMusic();
         }
@@ -636,8 +650,8 @@
         }
 
         // Window blur/focus (switching apps or leaving browser)
-        window.addEventListener("blur", pauseMusic);
-        window.addEventListener("focus", playMusic);
+        window.addEventListener("blur", pause);
+        window.addEventListener("focus", play);
 
         function scrollInvite() {
             const invite = document.getElementById("invite-sections");
