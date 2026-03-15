@@ -427,6 +427,19 @@
             transform: scale(1.02);
             box-shadow: 0 14px 40px rgba(0, 0, 0, 0.4);
         }
+
+        .controls {
+            z-index: 10;
+        }
+
+        .controls button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 6px;
+            background: #ffffffcc;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -505,7 +518,7 @@
         <div class="section invite-section ">
             <div class="card">
                 <h2>Bride's Family</h2>
-                <p>Mr. R Muraleedhara Menon<br>Mrs. M Jyothi</p>
+                <p>Mr. R Muraleedhara Menon<br>Mrs. M Jyothi<br>Akshay Murali Menon</p>
                 <p><b>Ramaneeduth House<br>Punkunnam, Kodungallur<br>Thrissur</b></p>
             </div>
         </div>
@@ -522,10 +535,15 @@
 
                 </div>
                 <div class="gallery">
-                    <video autoplay muted loop playsinline preload="auto" id="bg-video">
+                    <video muted loop playsinline preload="auto" id="bg-video">
                         <source src="video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
+                    <div class="controls">
+                        <button onclick="playVideo()">▶ Play</button>
+                        <button onclick="pauseVideo()">⏸ Pause</button>
+                        <button onclick="restartVideo()">🔄 Restart</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -565,6 +583,56 @@
             loader.style.display = 'none';
             video.style.visibility = 'visible';
         });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(video);
+
+        function playVideo() {
+            video.play();
+        }
+
+        function pauseVideo() {
+            video.pause();
+        }
+        function restartVideo() {
+            video.currentTime = 0; // Go to the start
+            video.play();           // Play from beginning
+        }
+
+        const music = document.getElementById("music");
+
+        function pauseMusic() {
+            music.pause();
+        }
+
+        // Play music when page is visible and window is focused
+        function playMusic() {
+            music.play().catch(() => {
+                // Autoplay may require user interaction on mobile
+            });
+        }
+
+           // Music toggle
+        function toggleMusic() {
+            if (!music.paused) {
+                pauseMusic()
+            } else {
+                playMusic();
+            }
+        }
+
+        // Window blur/focus (switching apps or leaving browser)
+        window.addEventListener("blur", pauseMusic);
+        window.addEventListener("focus", playMusic);
 
         function scrollInvite() {
             const invite = document.getElementById("invite-sections");
@@ -619,17 +687,6 @@
             }
         }, 1000);
 
-        // Music toggle
-        function toggleMusic() {
-            var m = document.getElementById("music");
-            if (!m.paused) {
-                // Stop the music
-                m.pause();
-                m.currentTime = 0; // Reset to beginning
-            } else {
-                m.play();
-            }
-        }
 
         // Guest personalization
         var params = new URLSearchParams(window.location.search);
