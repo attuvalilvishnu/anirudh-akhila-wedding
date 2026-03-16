@@ -180,5 +180,6 @@ const guest = params.get('guest');
 if (guest) {
     document.getElementById("guest").innerHTML = "Dear " + guest + ", we are delighted to invite you!";
 }
+//
 
 
