@@ -141,7 +141,7 @@ function scrollInvite() {
 }
 
 // Countdown
-var eventDate = new Date("May 20, 2026 17:00:00").getTime();
+var eventDate = new Date("May 18, 2026 10:30:00").getTime();
 setInterval(function () {
     var now = new Date().getTime();
     var diff = eventDate - now;
