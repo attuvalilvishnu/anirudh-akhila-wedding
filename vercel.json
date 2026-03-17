@@ -1,10 +1,6 @@
 {
   "rewrites": [
     {
-      "source": "/index",
-      "destination": "/"
-    },
-    {
       "source": "/edit",
       "destination": "/edit.html"
     },
