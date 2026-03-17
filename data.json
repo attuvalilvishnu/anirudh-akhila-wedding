@@ -1,0 +1,40 @@
+{
+    "groom": "Anirudh",
+    "bride": "Akhila",
+    "cover": {
+        "image": "couple1.jpeg",
+        "icon": "A_A.png",
+        "date": "20 May 2026",
+        "place": "Calicut"
+    },
+    "invitation_section": {
+        "parent1": "Padmaja Vijayan",
+        "parent2": "AB Vijayan Menon",
+        "groom": "Anirudh",
+        "icon": "A_A.png",
+        "bride": "Akhila"
+    },
+    "reception_section": {
+        "header": "Reception",
+        "date": "Wednesday, 20 May 2026",
+        "venu": "Classic Auditorium (Majestic)",
+        "place": "Palayam, Calicut",
+        "time": "5:00 PM - 9:00 PM",
+        "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.1473308805503!2d75.78824809999999!3d11.250570399999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65941738769c5%3A0x751198bd8adbc973!2sMajestic%20Auditorium!5e0!3m2!1sen!2sca!4v1773451184372!5m2!1sen!2sca",
+        "countdown": {
+            "header": "Countdown to Celebration",
+            "date": "May 20, 2026 17:00:00"
+        }
+    },
+    "marriage_section": {
+        "header": "Marriage Ceremony",
+        "date": "Monday, 18 May 2026",
+        "venu": "Poonthanam Auditorium, East Nada, Guruvayur",
+        "time": "10:30 AM to 11:30 AM",
+        "map": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3921.8143539254697!2d76.0416431!3d10.593683300000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7948a4938dea7%3A0x1b46d82a9cb5b020!2sPOONTHANAM%20AUDITORIUM!5e0!3m2!1sen!2sca!4v1773450497381!5m2!1sen!2sca"
+    },
+    "moments": {
+        "header": "Engagement Moments",
+        "video":"video.MP4"
+    }
+}

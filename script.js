@@ -1,14 +1,64 @@
-const video = document.getElementById('bg-video');
-const loader = document.getElementById('loader');
-const music = document.getElementById("music");
-const playBtn = document.getElementById("play-btn");
-const pauseBtn = document.getElementById("pause-btn");
+
+let video;
+let loader;
+let music;
+let playBtn;
+let pauseBtn;
 let isUserPause = false;
-video.addEventListener('canplaythrough', () => {
-    // Video is ready to play
-    loader.style.display = 'none';
-    video.style.visibility = 'visible';
-});
+let parsedData = {};
+
+async function init() {
+    const data = localStorage.getItem("data");
+    parsedData = data ? JSON.parse(data) : await loadJSON();
+    const source = document.getElementById("data-template").innerHTML;
+    const template = Handlebars.compile(source);
+    document.getElementById("target").innerHTML = template(parsedData);
+    loadDomContent();
+}
+
+init();
+
+async function loadJSON() {
+    try {
+        const response = await fetch("data.json");
+        const data = await response.json();
+        return data;
+    } catch (err) {
+        alert("Failed to load JSON. Make sure you are running a local server.");
+        console.error(err);
+    }
+}
+
+function loadDomContent() {
+    video = document.getElementById('bg-video');
+    loader = document.getElementById('loader');
+    music = document.getElementById("music");
+    playBtn = document.getElementById("play-btn");
+    pauseBtn = document.getElementById("pause-btn");
+
+    video.addEventListener('canplaythrough', () => {
+        // Video is ready to play
+        loader.style.display = 'none';
+        video.style.visibility = 'visible';
+    });
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !isUserPause) {
+                play();
+            } else {
+                pause();
+            }
+        });
+    }, { threshold: 0.5 });
+
+    observer.observe(video);
+
+    // Initialize buttons on page load
+    updateButtons();
+    coutdown();
+}
+
+
 
 function safePlay() {
     if (video?.readyState >= 3) {
@@ -18,17 +68,7 @@ function safePlay() {
     }
 }
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting && !isUserPause) {
-            play();
-        } else {
-            pause();
-        }
-    });
-}, { threshold: 0.5 });
 
-observer.observe(video);
 
 // Toggle buttons visibility
 function updateButtons() {
@@ -42,8 +82,6 @@ function updateButtons() {
     }
 }
 
-// Initialize buttons on page load
-updateButtons();
 
 function pause() {
     pauseVideo();
@@ -141,15 +179,16 @@ function scrollInvite() {
 }
 
 // Countdown
-var eventDate = new Date("May 20, 2026 17:00:00").getTime();
+function coutdown(){
+const eventDate = new Date(parsedData.reception_section.date).getTime();
 setInterval(function () {
-    var now = new Date().getTime();
-    var diff = eventDate - now;
+    const now = new Date().getTime();
+    const diff = eventDate - now;
     if (diff > 0) {
-        var d = Math.floor(diff / (1000 * 60 * 60 * 24));
-        var h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        var s = Math.floor((diff % (1000 * 60)) / 1000);
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((diff % (1000 * 60)) / 1000);
         document.getElementById("countdown").innerHTML = `
       <div class="time-box">
         <div class="time-number">${d}</div>
@@ -172,6 +211,8 @@ setInterval(function () {
         document.getElementById("countdown").innerHTML = "<p>🎉 The celebration has begun! 🎉</p>";
     }
 }, 1000);
+}
+
 
 
 // Guest personalization
