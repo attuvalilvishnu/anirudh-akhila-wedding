@@ -13,7 +13,7 @@ async function init() {
     const source = document.getElementById("data-template").innerHTML;
     const template = Handlebars.compile(source);
     document.getElementById("target").innerHTML = template(parsedData);
-    loadDomContent();
+    loadDomContent(); //
 }
 
 init();
