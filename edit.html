@@ -120,7 +120,7 @@
                 try {
                     const json = JSON.parse(text);
                     localStorage.setItem("data", JSON.stringify(json));
-                    window.location.href = 'index';
+                    window.location.href = '/';
                 }
                 catch (e) {
                     alert("Invalid JSON"); //
