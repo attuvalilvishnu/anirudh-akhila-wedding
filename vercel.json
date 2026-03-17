@@ -1,6 +1,16 @@
 {
   "rewrites": [
-    { "source": "/edit", "destination": "/edit.html" },
-    { "source": "/login", "destination": "/login.html" }
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/edit",
+      "destination": "/edit.html"
+    },
+    {
+      "source": "/login",
+      "destination": "/login.html"
+    }
   ]
 }
