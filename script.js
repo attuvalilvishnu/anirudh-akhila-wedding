@@ -217,7 +217,7 @@ setInterval(function () {
 
 // Guest personalization
 const params = new URLSearchParams(window.location.search);
-const guest = params.get('guest');
+const guest = params.get('guest'); /// test
 if (guest) {
     document.getElementById("guest").innerHTML = "Dear " + guest + ", we are delighted to invite you!";
 }
