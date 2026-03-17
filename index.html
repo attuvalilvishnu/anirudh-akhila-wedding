@@ -18,12 +18,16 @@
 <body>
     <script id="data-template" type="text/x-handlebars-template">
     <div class="bg-image"></div>
-
     <!-- Hero Section -->
     <div class="hero">
         <img src="assets/{{cover.image}}" alt="Hero Image" class="bg-img">
         <div class="overlay"></div>
         <div class="hero-content">
+            <a href="/edit" style="position: absolute;
+                             bottom: 50vh;
+                            left: 30vh;
+                            color: green;"
+    ><i class="fas fa-edit"></i> </a>
             <img src="assets/{{cover.icon}}" alt="AA Monogram" class="hero-aa-img">
             <p>{{cover.date}} • {{cover.place}}</p>
             <button class="flower-btn" onclick="scrollInvite()">Open Invitation</button>
