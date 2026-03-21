@@ -4,6 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Anirudh & Akhila Wedding" />
+    <meta property="og:description" content="Join us for our Wedding Reception" />
+    <meta property="og:image" content="https://anirudh-akhila-wedding.vercel.app/assets/couple3.jpeg" />
+    <meta property="og:url" content="https://anirudh-akhila-wedding.vercel.app" />
+    <meta property="og:type" content="website" />
+
+    <!-- WhatsApp optimization -->
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="1030" />
     <title>Akhila & Anirudh Wedding</title>
     <link rel="icon" type="image/png" href="assets/A_A.png">
     <!-- Google Fonts -->
@@ -20,11 +29,11 @@
 
     <!-- Hero Section -->
     <div class="hero">
-        <img src="assets/couple1.jpeg" alt="Hero Image" class="bg-img">
+        <img src="assets/couple3.jpeg" alt="Hero Image" class="bg-img">
         <div class="overlay"></div>
         <div class="hero-content">
             <img src="assets/A_A.png" alt="AA Monogram" class="hero-aa-img">
-            <p>18 May 2026</p>
+            <p>20 May 2026 • Calicut</p>
             <button class="flower-btn" onclick="scrollInvite()">Open Invitation</button>
         </div>
     </div>
@@ -53,21 +62,50 @@
         <div class="section invite-section ">
             <div class="card">
                 <h2>Marriage Ceremony</h2>
-                <p><b>Thalikettu at</b><br>Guruvayur Sree Krishna Temple</p>
-                <p><b>07:00 AM to 07:30 AM</b></p>
-                <p><b>Monday, 18 May 2026</b></p>
-                <p>Poonthanam Auditorium, East Nada, Guruvayur</p>
-                <p><b>10:30 AM to 11:30 AM</b></p>
-
-                <!-- Google Map Embed -->
-                <div class="map-container">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3921.8143539254697!2d76.0416431!3d10.593683300000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7948a4938dea7%3A0x1b46d82a9cb5b020!2sPOONTHANAM%20AUDITORIUM!5e0!3m2!1sen!2sca!4v1773450497381!5m2!1sen!2sca"
-                        width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="date-time-card">
+                    <p>
+                        <b>Thalikettu</b><br>
+                        Sree Krishna Temple<br>Guruvayur
+                    </p>
+                    <div class="date">
+                        📅 18 May 2026<br>
+                        <span class="sub">Monday</span>
+                    </div>
+                    <div class="time">⏰ 07:00 AM - 07:30 AM</div>
                 </div>
-                <h2 style="margin-top:30px">Countdown to Celebration</h2>
+
+                <div class="date-time-card">
+                    <p>
+                        <b>Wedding Function</b><br>
+                        Poonthanam Auditorium <br>Guruvayur
+                    </p>
+                    <div class="date">
+                        📅 18 May 2026<br>
+                        <span class="sub">Monday</span>
+                    </div>
+                    <div class="time">⏰ 10:30 AM - 11:30 AM</div>
+                </div>
+                <div class="calendar-container">
+                    <p>SAVE THE DATE</P>
+                    <div class="calendar">
+                        <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Anirudh%20Akhila%20Wedding&dates=20260518T103000/20260518T113000&ctz=Asia/Kolkata&details=Join%20us%20for%20the%20marriage%20ceremony%0A%0A&location=POONTHANAM%20AUDITORIUM,%20H2VR%2BFMC,%20Poonthanam%20auditorium%20entrance%20Rd,%20East%20Nada,%20Guruvayur,%20Kerala%20680101,%20India"
+                            target="_blank">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="assets/marriage.ics"> <i class="fab fa-apple"></i></a>
+                        <a href="assets/marriage.ics"> <i class="fab fa-envelope"></i></a>
+                    </div>
+                    <!-- Google Map Embed -->
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3921.8143539254697!2d76.0416431!3d10.593683300000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7948a4938dea7%3A0x1b46d82a9cb5b020!2sPOONTHANAM%20AUDITORIUM!5e0!3m2!1sen!2sca!4v1773450497381!5m2!1sen!2sca"
+                            width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                <h2 style="margin-top:30px">Countdown</h2>
                 <div id="countdown" class="countdown"></div>
+
             </div>
         </div>
 
@@ -99,6 +137,7 @@
             </div>
         </div>
 
+      
         <div class="section invite-section ">
             <div class="card">
                 <h2>Groom's Family</h2>
@@ -120,7 +159,7 @@
                 <h2>Sharing the Happiness</h2>
                 <p>
                     Akshay Murali Menon<br>
-                   Cousins, Relatives & Friends
+                    Cousins, Relatives & Friends
                 </p>
             </div>
         </div>

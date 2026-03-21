@@ -1,0 +1,12 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+SUMMARY:Anirudh Akhila Wedding Reception
+DTSTART;TZID=Asia/Kolkata:20260520T170000
+DTEND;TZID=Asia/Kolkata:20260520T210000
+LOCATION:Majestic Auditorium, Chinthavalappu Flats, Palayam, Kozhikode, Kerala 673002, India
+DESCRIPTION:Join us for the wedding Reception
+END:VEVENT
+END:VCALENDAR
+
+
