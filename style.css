@@ -466,3 +466,33 @@ footer {
     position: relative;
     top: 2px;
 }
+
+.calendar-container, .date-time-card {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 14px 18px;
+    border-radius: 14px;
+    margin: 16px auto;
+    text-align: center;
+    width: fit-content;
+    backdrop-filter: blur(8px);
+}
+
+.date {
+    font-size: clamp(1.2rem, 4vw, 1.3rem);
+    font-weight: 500;
+    color: white;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.time {
+    font-size: clamp(1.2rem, 4vw, 1.3rem);
+    font-weight: 500;
+    color: white;
+    margin-top: 4px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.sub {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
