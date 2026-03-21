@@ -1,10 +1,10 @@
 BEGIN:VCALENDAR
 VERSION:2.0
 BEGIN:VEVENT
-SUMMARY:Anirudh Akhila Marriage
-DTSTART:20260518T103000
-DTEND:20260518T113000
-LOCATION:Poonthanam Auditorium, Guruvayur
+SUMMARY:Anirudh & Akhila Wedding
 DESCRIPTION:Join us for the marriage ceremony
+LOCATION:POONTHANAM AUDITORIUM, H2VR+FMC, Poonthanam auditorium entrance Rd, East Nada, Guruvayur, Kerala 680101, India
+DTSTART;TZID=Asia/Kolkata:20260518T103000
+DTEND;TZID=Asia/Kolkata:20260518T113000
 END:VEVENT
 END:VCALENDAR
