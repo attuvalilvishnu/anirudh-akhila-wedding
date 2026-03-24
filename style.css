@@ -467,7 +467,8 @@ footer {
     top: 2px;
 }
 
-.calendar-container, .date-time-card {
+.calendar-container,
+.date-time-card {
     /*background: rgba(255, 255, 255, 0.12);*/
     padding: 14px 18px;
     border-radius: 14px;
@@ -478,7 +479,7 @@ footer {
 }
 
 .date {
-    font-size: clamp(1.2rem, 4vw, 1.3rem);
+    font-size: clamp(1.3rem, 4vw, 1.4rem);
     font-weight: 500;
     color: white;
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
@@ -493,6 +494,6 @@ footer {
 }
 
 .sub {
-  font-size: 0.9rem;
-  opacity: 0.8;
+    font-size: clamp(1.2rem, 4vw, 1.3rem);
+    opacity: 0.8;
 }
