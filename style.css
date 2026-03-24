@@ -384,7 +384,7 @@ footer {
     /* slightly larger than iframe for padding effect */
     height: 220px;
     margin: 20px auto;
-    padding: 10px;
+    /*padding: 10px;*/
     border-radius: 20px;
     /*background: rgba(255, 255, 255, 0.12);*/
     /*box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);*/
